@@ -8,13 +8,13 @@ import bodyParser from 'body-parser';
 import { V0MODELS } from './controllers/v0/model.index';
 
 (async () => {
-  await sequelize.addModels(V0MODELS);
+  sequelize.addModels(V0MODELS);
   await sequelize.sync();
 
   const app = express();
   const port = process.env.PORT || 8080; // default port to listen
   
-  app.use(bodyParser.json());
+  app.use(express.json());
 
   //CORS Should be restricted
   app.use(function(req, res, next) {
