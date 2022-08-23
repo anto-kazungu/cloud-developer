@@ -1,0 +1,8 @@
+"username":"udagramkazodev",
+"password": "udagramkazodev",
+"database": "udagramkazodev",
+"host": "udagramkazodev.ciy5avybqbv4.us-east-1.rds.amazonaws.com",
+"dialect": "postgres",
+"aws_region": "us-east-1",
+"aws_profile": "udagram-backend-dev",
+"aws_media_bucket": "udagramkazo-dev"

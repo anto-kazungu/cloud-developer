@@ -29,7 +29,7 @@ router.get('/:id', async (req: Request, res: Response) => {
 router.patch('/:id', 
     requireAuth, 
     async (req: Request, res: Response) => {
-        //@TODO try it yourself
+        // grting id
         const id = req.params.id;
         const patchItem = await FeedItem.update(req.body,{ where: { id : id}})
 
