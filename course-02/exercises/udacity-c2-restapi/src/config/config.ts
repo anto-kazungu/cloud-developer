@@ -5,7 +5,7 @@ export const config = {
   "database": process.env.POSTGRESS_DATABASE,
   "host": process.env.POSTGRESS_HOST,
   "dialect": "postgress",
-  "jwt":"jwt"
+  "jwt": process.env.JWT_SECRET,
   },
 
 "aws": {
