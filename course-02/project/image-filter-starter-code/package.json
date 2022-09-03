@@ -28,9 +28,12 @@
     "typescript": "^3.5.3"
   },
   "dependencies": {
+    "curly-bracket-parser": "^1.2.1",
     "express": "^4.17.1",
-    "jimp": "^0.16.1",
-    "rimraf": "^3.0.2",
-    "lodash": "^4.17.15"
+    "image-url-validator": "^1.0.4",
+    "is-image-url": "^1.1.8",
+    "jimp": "^0.16.0",
+    "lodash": "^4.17.15",
+    "rimraf": "^3.0.2"
   }
 }

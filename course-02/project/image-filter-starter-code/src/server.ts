@@ -1,5 +1,6 @@
+import { Router, Request, Response } from 'express';
 import express from 'express';
-import bodyParser from 'body-parser';
+import bodyParser from 'body-parser'; 
 import {filterImageFromURL, deleteLocalFiles} from './util/util';
 
 (async () => {
@@ -12,6 +13,7 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
   
   // Use the body parser middleware for post requests
   app.use(bodyParser.json());
+
 
   // @TODO1 IMPLEMENT A RESTFUL ENDPOINT
   // GET /filteredimage?image_url={{URL}}
@@ -30,7 +32,23 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
   /**************************************************************************** */
 
   //! END @TODO1
-  
+
+  app.get("/filteredimage", async ( req:Request, res:Response) => {
+    //Obtain query parameters
+    const image_url = req.query.image_url as string;
+
+    //validate if there is a url
+    if (!image_url){
+      return res.status(400).send({ message: 'Please enter image url'});
+    }
+    //Download and filter the image then delete it on the server
+    const filteredpath = await filterImageFromURL(image_url);
+    res.status(200).sendFile(filteredpath, () => {
+      deleteLocalFiles([filteredpath]);
+    });
+  });
+
+ 
   // Root Endpoint
   // Displays a simple message to the user
   app.get( "/", async ( req, res ) => {

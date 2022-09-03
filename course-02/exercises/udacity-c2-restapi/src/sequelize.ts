@@ -2,7 +2,8 @@ import {Sequelize} from 'sequelize-typescript';
 import { config } from './config/config';
 
 
-const c = config.dev;
+const c = config.postress;
+const a = config.aws;
 
 // Instantiate new Sequelize instance!
 export const sequelize = new Sequelize({
